@@ -1,18 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-int Pallindrome(int n){
+bool Pallindrome(int nums){
     int reverse=0;
-    while(n!=0){
-        reverse=n%10;
-        n=n/10;
-    }
-    if(n==reverse){
+    int original=nums;
+    while(nums!=0){
+       int digit=nums%10;
+       reverse=reverse*10+digit;
+       nums=nums/10;
+    }if(original==reverse){
         return true;
     }
     return false;
-}
-int main(){
-    int n;cin>>n;
-    int palli=Pallindrome(n);
     
+}
+
+int main(){
+    int nums;cin>>nums;
+    if(Pallindrome(nums)){
+        cout<<"true";
+    }else{
+        cout<<"false";
+    }
 }
